@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Sheet</title>
+<style>
+body {
+font-family: Arial, sans-serif; 
+margin: 20px;
+}
+table {
+width: 50%;
+border-collapse: collapse; 
+margin-top: 20px;
+}
+th, td {
+border: 1px solid #ddd; 
+padding: 8px;
+text-align: center;
+}
+th {
+background-color: #f2f2f2;
+}
+button {
+margin-top: 20px;
+}
+</style>
+</head>
+<body>
+<h2>Attendance Sheet</h2>
+<label for="subjectSelect">Select Subject:</label>
+<select id="subjectSelect" required>
+<option value="">--Select a Subject--</option>
+<option value="DMGT">DMGT</option>
+<option value="DAA">DAA</option>
+<option value="FSD">FSD</option>
+<option value="OS">OS</option>
+<option value="CN">CN</option>
+</select>
+<form id="attendanceForm" style="display: none;">
+<table>
+<thead>
+<tr>
+<th>Roll Number</th>
+<th>Present</th>
+<th>Absent</th>
+</tr>
+</thead>
+<tbody>
+<!-- Generate 10 roll numbers in the format 24R01A6701 -->
+<script>
+for (let i = 1; i <= 10; i++) {
+const rollNumber = `23R01A05${i.toString().padStart(2, '0')}`; 
+document.write(`
+<tr>
+<td>${rollNumber}</td>
+<td><input type="radio" name="attendance${i}" value="present"
+required></td>
+<td><input type="radio" name="attendance${i}" value="absent"></td>
+</tr>
+`);
+}
+</script>
+</tbody>
+</table>
+<button type="submit">Post Attendance</button>
+</form>
+<script>
+const subjectSelect = document.getElementById('subjectSelect'); 
+const attendanceForm = document.getElementById('attendanceForm');
+subjectSelect.addEventListener('change', function() {
+if (subjectSelect.value) { 
+attendanceForm.style.display = 'block';
+} else {
+attendanceForm.style.display = 'none';
+}
+});
+attendanceForm.addEventListener('submit', function(event) { 
+event.preventDefault();
+alert('Attendance has been posted successfully!');
+setTimeout(function() { 
+window.location.href = 'teacherslist.html';
+}, 3000);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Timetable</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+        .back-link {
+      color: #4299e1;
+      text-decoration: underline;
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding-left: 30px;
+      margin-top: 20px;
+    }
+    </style>
+</head>
+<body>
+    <a href="student.html" class="back-link">&larr; Back to Dashboard</a>
+    <h2 style="text-align: center;">CSE-PB3 Timetable</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>9:10 AM - 10:10 AM</th>
+                <th>10:10 AM - 11:10 AM</th>
+                <th>11:20 AM - 12:20 PM</th>
+                <th>12:20 PM - 1:20 PM</th>
+                <th>2:05 PM - 3:05 PM</th>
+                <th>3:05 PM - 4:05 PM</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Monday</th>
+                <td>DMGT</td>
+                <td>ES-SOFT SKILLS</td>
+                <td colspan="2">CN/Node JS Lab</td>
+                <td>OS</td>
+                <td>CN</td>
+            </tr>
+            <tr>
+                <th>Tuesday</th>
+                <td>DMGT</td>
+                <td>ICC</td>
+                <td>CN</td>
+                <td>FSD</td>
+                <td>RTSR</td>
+                <td>DAA</td>
+            </tr>
+            <tr>
+                <th>Wednesday</th>
+                <td>DAA</td>
+                <td>ICC</td>
+                <td>ES</td>
+                <td>FSD</td>
+                <td colspan="2">ATT/RTSR Lab</td>
+            </tr>
+            <tr>
+                <th>Thursday</th>
+                <td>OS</td>
+                <td>CN</td>
+                <td>ES</td>
+                <td>DMGT Lab</td>
+                <td colspan="2">CN/Node JS Lab</td>
+            </tr>
+            <tr>
+                <th>Friday</th>
+                <td>OS</td>
+                <td>FSD</td>
+                <td>FSD</td>
+                <td>ES TEST</td>
+                <td>DAA</td>
+                <td>DMGT</td>
+            </tr>
+            <tr>
+                <th>Saturday</th>
+                <td colspan="2">ATT/RTSR Lab</td>
+                <td>CN</td>
+                <td>ES TEST</td>
+                <td>DMGT</td>
+                <td>DAA</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="course-details">
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Course Code</th>
+                    <th>Abbreviation</th>
+                    <th>Course Name</th>
+                    <th>Faculty name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>22ES41</td>
+                    <td>DMGT</td>
+                    <td>Discrete Mathematics & Graph Theory</td>
+                    <td>Mr.D.Rakesh Babu</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>22CSPC41</td>
+                    <td>DAA</td>
+                    <td>Design and Analysis of Algorithms</td>
+                    <td>Mr.P.Kiran Kumar/Ms.S.Ashwini</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>22CSPC42</td>
+                    <td>CN</td>
+                    <td>Computer Networks</td>
+                    <td>Mrs.A.Sangeetha/Ms.V.Vijaya</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>22CSPC43</td>
+                    <td>OS</td>
+                    <td>Operating Systems</td>
+                    <td>Ms.Ruksana Shaik/Mrs.G.Prisilla Jayanthi</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>22CSPC44</td>
+                    <td>FSD</td>
+                    <td>Full Stack Development</td>
+                    <td>Mrs.V.Siva Pavani/Mrs.G.Lavanya</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>22CSPC45</td>
+                    <td>CN-OS Lab</td>
+                    <td>CN & OS (Linux) Lab</td>
+                    <td>Mrs.A.Sangeetha/Ms.Ruksana Shaik</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>22CSPC46</td>
+                    <td>Node JS Lab</td>
+                    <td>Node JS/Angular/React JS/Django</td>
+                    <td>Mrs.V.Siva Pavani/Mrs.G.Sangeetha</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>22CSPC47</td>
+                    <td>ATT Lab</td>
+                    <td>Automated Testing Tools - Selenium</td>
+                    <td>Ms.S.Ashwini/ Ms.A.Sangeetha</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>22CPR41</td>
+                    <td>RTSR</td>
+                    <td>Real-time/Societal Research Project</td>
+                    <td>205.Mrs.B.Shanthi B1; Mrs.S.Shilpa B2;Dr.S.Ganga</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>22MC41</td>
+                    <td>ICC</td>
+                    <td>Indian Culture and Constitution</td>
+                    <td>Mrs.J.Bharathi</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>22MC42</td>
+                    <td>ES-II</td>
+                    <td>Employability Skills - II</td>
+                    <td>Mrs.Ramya/Mrs.K.Annapurna</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <p class="note">Class Coordinator(CC): Mrs.V.Siva Pavani</p>    
+</body>
+</html>

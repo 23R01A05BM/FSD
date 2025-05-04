@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Login / Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .container {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      min-height: 100vh; background-color: #f0f0f0;
+    }
+    .form-box {
+      background-color: white; max-width: 400px;
+      width: 100%; padding: 2rem; border-radius: 0.5rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      margin-bottom: 1rem;
+    }
+    .form-title {
+      font-size: 1.5rem; font-weight: bold;
+      margin-bottom: 1.5rem; text-align: center;
+      color: #1a202c;
+    }
+    .input-group {
+      margin-bottom: 1rem;
+    }
+    .input-group label {
+      display: block; font-size: 0.875rem;
+      color: #4a5568; margin-bottom: 0.5rem;
+    }
+    .input-group input {
+      width: 100%; padding: 0.75rem;
+      border: 1px solid #e2e8f0; border-radius: 0.375rem;
+      font-size: 1rem;
+    }
+    .input-group input:focus {
+      outline: none; border-color: #4299e1;
+      box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.16);
+    }
+    .button {
+      width: 100%; padding: 0.75rem; border-radius: 0.375rem;
+      font-size: 1rem; font-weight: bold; color: white;
+      background-color: #4299e1; border: none; cursor: pointer;
+    }
+    .button:hover { background-color: #3182ce; }
+    .button:disabled {
+      background-color: #a0aec0; cursor: not-allowed; opacity: 0.7;
+    }
+    .switch-form {
+      text-align: center; font-size: 0.875rem;
+      color: #718096; margin-top: 1rem;
+    }
+    .switch-form a {
+      color: #4299e1; text-decoration: underline;
+    }
+    #error-message, #login-error-message {
+      color: #e53e3e; font-size: 0.875rem;
+      text-align: center; margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="container">
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" class="form-box">
+      <h2 class="form-title">Sign Up</h2>
+      <div class="input-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+      </div>
+      <div class="input-group">
+        <label for="branch">Branch</label>
+        <input type="text" id="branch" placeholder="Enter your branch">
+      </div>
+      <div class="input-group">
+        <label for="rollno-signup">Roll No</label>
+        <input type="text" id="rollno-signup" placeholder="Enter your roll number">
+      </div>
+      <div class="input-group">
+        <label for="password-signup">Password</label>
+        <input type="password" id="password-signup" placeholder="Enter your password">
+      </div>
+      <button id="signup-button" class="button" disabled>Sign Up</button>
+      <p id="error-message"></p>
+      <div class="switch-form">
+        <a href="#" id="switch-to-login">Already have an account? Log in</a>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <div id="login-form" class="form-box" style="display: none;">
+      <h2 class="form-title">Login</h2>
+      <div class="input-group">
+        <label for="rollno-login">Roll No</label>
+        <input type="text" id="rollno-login" placeholder="Enter your roll number">
+      </div>
+      <div class="input-group">
+        <label for="password-login">Password</label>
+        <input type="password" id="password-login" placeholder="Enter your password">
+      </div>
+      <button id="login-button" class="button" disabled>Login</button>
+      <p id="login-error-message"></p>
+      <div class="switch-form">
+        <a href="#" id="switch-to-signup">Create an account</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const signupForm = document.getElementById("signup-form");
+    const loginForm = document.getElementById("login-form");
+
+    // Switch forms
+    document.getElementById("switch-to-login").addEventListener("click", () => {
+      signupForm.style.display = "none";
+      loginForm.style.display = "block";
+    });
+    document.getElementById("switch-to-signup").addEventListener("click", () => {
+      loginForm.style.display = "none";
+      signupForm.style.display = "block";
+    });
+
+    // Enable signup button when all fields are filled
+    const nameInput = document.getElementById("name");
+    const branchInput = document.getElementById("branch");
+    const rollnoSignupInput = document.getElementById("rollno-signup");
+    const passwordSignupInput = document.getElementById("password-signup");
+    const signupButton = document.getElementById("signup-button");
+
+    [nameInput, branchInput, rollnoSignupInput, passwordSignupInput].forEach(input => {
+      input.addEventListener("input", () => {
+        signupButton.disabled = !(
+          nameInput.value && branchInput.value &&
+          rollnoSignupInput.value && passwordSignupInput.value
+        );
+      });
+    });
+
+    // Enable login button when both fields are filled
+    const rollnoLoginInput = document.getElementById("rollno-login");
+    const passwordLoginInput = document.getElementById("password-login");
+    const loginButton = document.getElementById("login-button");
+
+    [rollnoLoginInput, passwordLoginInput].forEach(input => {
+      input.addEventListener("input", () => {
+        loginButton.disabled = !(rollnoLoginInput.value && passwordLoginInput.value);
+      });
+    });
+
+    // Signup
+    signupButton.addEventListener("click", () => {
+      const name = nameInput.value.trim();
+      const branch = branchInput.value.trim();
+      const rollNo = rollnoSignupInput.value.trim();
+      const password = passwordSignupInput.value.trim();
+
+      const students = JSON.parse(localStorage.getItem("students")) || [];
+      const existing = students.find(s => s.rollNo === rollNo);
+
+      if (existing) {
+        document.getElementById("error-message").textContent = "Roll number already exists!";
+        return;
+      }
+
+      students.push({ name, branch, rollNo, password });
+      localStorage.setItem("students", JSON.stringify(students));
+      window.location.href = "student.html";
+    });
+
+    // Login
+    loginButton.addEventListener("click", () => {
+      const rollNo = rollnoLoginInput.value.trim();
+      const password = passwordLoginInput.value.trim();
+
+      const students = JSON.parse(localStorage.getItem("students")) || [];
+      const student = students.find(s => s.rollNo === rollNo && s.password === password);
+
+      if (!student) {
+        document.getElementById("login-error-message").textContent = "Invalid credentials!";
+        return;
+      }
+
+      window.location.href = "student.html";
+    });
+  </script>
+</body>
+</html>

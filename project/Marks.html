@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CGPA and Grades</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link 
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif; 
+background-color: #f7fafc;
+}
+.container {
+max-width: 800px; 
+margin: 2rem auto; 
+padding: 1rem; 
+background-color: white; 
+border-radius: 0.5rem;
+box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.heading {
+font-size: 2rem; 
+font-weight: bold; 
+color: #1a202c;
+margin-bottom: 1.5rem; 
+text-align: center;
+}
+.cgpa-summary {
+margin-bottom: 1.5rem; 
+padding: 1rem; 
+background-color: #edf2f7; 
+border-radius: 0.5rem; 
+display: flex;
+justify-content: space-between; 
+align-items: center;
+}
+.cgpa-summary-label { 
+font-size: 1.25rem; 
+color: #4a5568;
+}
+.cgpa-value {
+font-size: 1.5rem; 
+font-weight: bold; 
+color: #2d3748;
+}
+.subject-grades { 
+margin-bottom: 1rem;
+}
+.subject-heading { 
+font-size: 1.25rem; 
+font-weight: bold; 
+color: #1a202c;
+margin-bottom: 0.75rem;
+}
+.subject-list {
+list-style-type: none; 
+padding: 0;
+margin: 0;
+}
+.subject-item { 
+display: flex;
+justify-content: space-between;
+align-items: center; 
+padding: 0.75rem;
+border-bottom: 1px solid #e2e8f0;
+}
+.subject-item:last-child { 
+border-bottom: none;
+}
+.subject-name { 
+font-size: 1rem; 
+color: #4a5568;
+}
+.subject-grade {
+font-size: 1.25rem; 
+font-weight: bold; 
+color: #2d3748;
+}
+.subject-points { 
+font-size: 1rem; 
+color: #4a5568;
+}
+.back-link {
+      color: #4299e1;
+      text-decoration: underline;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+</style>
+</head>
+<body class="bg-gray-100">
+<div class="container">
+    <a href="student.html" class="back-link">&larr; Back to Dashboard</a>
+<h1 class="heading">CGPA and Grades</h1>
+<div class="cgpa-summary">
+<span class="cgpa-summary-label">Overall CGPA:</span>
+<span class="cgpa-value">8.75</span>
+</div>
+<div class="cgpa-summary">
+<span class="cgpa-summary-label">Overall GPA:</span>
+<span class="cgpa-value">9.2</span>
+</div>
+<div class="subject-grades">
+<h2 class="subject-heading">Subject-wise Grades</h2>
+<ul class="subject-list">
+<li class="subject-item">
+<span class="subject-name">SFCS</span>
+<span class="subject-grade">A</span>
+<span class="subject-points">(9 Points)</span>
+</li>
+<li class="subject-item">
+<span class="subject-name">SDE</span>
+<span class="subject-grade">A+</span>
+<span class="subject-points">(10 Points)</span>
+</li>
+<li class="subject-item">
+<span class="subject-name">JAVA</span>
+<span class="subject-grade">B+</span>
+<span class="subject-points">(8 Points)</span>
+</li>
+<li class="subject-item">
+<span class="subject-name">DBMS</span>
+<span class="subject-grade">A</span>
+<span class="subject-points">(9 Points)</span>
+</li>
+<li class="subject-item">
+<span class="subject-name">DLDCO</span>
+<span class="subject-grade">B+</span>
+<span class="subject-points">(8 Points)</span>
+</div>
+</div>
+</body>
+</html>
